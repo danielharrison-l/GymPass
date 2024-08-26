@@ -14,9 +14,40 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  creted_at     DateTime @default(now())
+
+  checkIns CheckIn[]
 
   @@map("users")
+}
+
+model CheckIn {
+  id           String    @id @default(uuid())
+  created_at   DateTime  @default(now())
+  validated_at DateTime?
+
+  user    User   @relation(fields: [user_Id], references: [id])
+  user_Id String
+
+  gym    Gym    @relation(fields: [gym_Id], references: [id])
+  gym_Id String
+
+  @@map("check_ins")
+}
+
+model Gym {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  phone       String?
+  latitude    Decimal
+  longitude   Decimal
+
+  checkIns CheckIn[]
+
+  @@map("gyms")
 }
