@@ -2,20 +2,20 @@
 
 ## Descrição
 
-A API Gympass é uma aplicação para gerenciar check-ins em academias e encontrar as academias mais próximas dos usuários. Ela permite que os usuários façam check-in em academias e consultem a lista de academias disponíveis com base em sua localização.
+A API Gympass é uma aplicação para gerenciar check-ins em academias. Ela também permite que os usuários consultem a lista de academias disponíveis com base em sua localização.
 
 ## Tecnologias
 
-- Node.js 20.x
+- Node.js v20
 - Docker
 - Docker Compose
-- npm ou yarn
 - TypeScript
 - Prisma
+- PostgreSQL
 - Fastify
 - Vitest para testes
 
 ## Requisitos
 
-- Node v20.15
-- Docker
+- Node v20.17+
+- Docker e Docker Compose
