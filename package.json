@@ -20,7 +20,7 @@
     "@types/node": "20.14.12",
     "@vitest/coverage-v8": "2.0.5",
     "@vitest/ui": "2.0.5",
-    "prisma": "5.18.0",
+    "prisma": "6.1.0",
     "tsconfig-paths": "4.2.0",
     "tsup": "8.2.3",
     "tsx": "4.16.2",
@@ -29,8 +29,9 @@
     "vitest": "2.0.5"
   },
   "dependencies": {
-    "@prisma/client": "5.18.0",
+    "@prisma/client": "6.1.0",
     "bcryptjs": "2.4.3",
+    "dayjs": "1.11.13",
     "dotenv": "16.4.5",
     "fastify": "4.28.1",
     "zod": "3.23.8"
