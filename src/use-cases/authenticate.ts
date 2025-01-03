@@ -19,7 +19,7 @@ export class AuthenticateUseCase {
     email,
     password,
   }: AuthenticateUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
-    const user = await this.usersRepository.findByEmail(email);
+    const user : User | null = await this.usersRepository.findByEmail(email);
 
     if (!user) {
       throw new InvalidCredentialsError();
@@ -33,6 +33,6 @@ export class AuthenticateUseCase {
 
     return {
       user,
-    };
+    }
   }
 }
