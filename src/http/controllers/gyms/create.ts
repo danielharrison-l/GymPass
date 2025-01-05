@@ -1,6 +1,4 @@
-import { UserAlreadyExistsError } from "@/use-cases/errors/user-already-exists-error";
 import { makeCreateGymUseCase } from "@/use-cases/factories/make-create-gym-use-case";
-import { makeRegisterUseCase } from "@/use-cases/factories/make-register-use-case";
 import { FastifyRequest, FastifyReply } from "fastify";
 
 import { z } from "zod";
@@ -22,7 +20,6 @@ export async function create(
   });
   const { title, description, phone, latitude, longitude} = createGymBodySchema.parse(request.body);
 
-  try {
     const createGymUseCase = makeCreateGymUseCase()
 
     await createGymUseCase.execute({
@@ -32,13 +29,7 @@ export async function create(
       latitude,
       longitude,
     });
-  } catch (err) {
-    if (err instanceof UserAlreadyExistsError) {
-      return reply.status(409).send({ message: err.message });
-    }
-
-    throw err;
-  }
+  
 
   return reply.status(201).send();
 }
