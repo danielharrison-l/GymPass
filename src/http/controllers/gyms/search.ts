@@ -12,7 +12,7 @@ export async function search(
     q: z.string(),
     page: z.coerce.number().min(1).default(1),
   });
-  const { page, q} = searchGymsBodySchema.parse(request.body);
+  const { page, q} = searchGymsBodySchema.parse(request.query);
 
     const searchGymUseCase = makeSearchGymsUseCase()
 
@@ -22,7 +22,7 @@ export async function search(
     });
   
 
-  return reply.status(201).send({
+  return reply.status(200).send({
     gyms,
   });
 }
