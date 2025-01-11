@@ -42,8 +42,6 @@ describe("Check-in Use Case", () => {
       userLongitude: -49.6401091,
     });
 
-    console.log("My CHECKIN", checkIn);
-
     expect(checkIn.id).toEqual(expect.any(String));
   });
 
