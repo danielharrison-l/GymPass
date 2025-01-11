@@ -48,7 +48,6 @@ export class CheckinUseCase {
 
     const MAX_DISTANCE_IN_KM = 0.1;
 
-    console.log("distancia em km calculada", distance);
     if (distance > MAX_DISTANCE_IN_KM) {
       throw new MaxDistanceError();
     }
@@ -58,7 +57,6 @@ export class CheckinUseCase {
       new Date()
     );
 
-    console.log("checkInOnSameDay", checkInOnSameDay);
 
     if (checkInOnSameDay) {
       throw new MaxNumberOfCheckInsError();
