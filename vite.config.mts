@@ -4,12 +4,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    environment: "prisma",
-    environmentMatchGlobs: [["src/http/controllers/**", "prisma"]],
+    environment: "node", // Ambiente padrão para evitar Prisma em testes unitários
+    environmentMatchGlobs: [["src/http/controllers/**", "prisma"]], // Só usa Prisma para esses testes
     environmentOptions: {
       adapter: "psql",
       envFile: ".env.test",
-      prismaEnvVarName: "DATABASE_URL", // Optional
+      prismaEnvVarName: "DATABASE_URL",
     },
   },
 });
